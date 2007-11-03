@@ -4,11 +4,26 @@
 package de.thesuntoucher.jigg.data;
 
 /**
- * TODO: implement Digg
- * 
  * http://apidoc.digg.com/ListEvents
  *
+ * <events timestamp="1176998174" min_date="1176760800" total="19" offset="0" count="10">
+ *  <digg date="1176935035" story="1776206" id="65657478" user="kevinrose" status="upcoming" />
  */
-public class Digg {
+public class Digg extends Event {
 
+	private Status status;
+
+	/**
+	 * @return the status
+	 */
+	public Status getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 }
