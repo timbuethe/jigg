@@ -52,3 +52,5 @@ for (Topic topic : jigg.getTopics()) {
   System.out.println(topic.getName() + "(" + topic.getShortName() + ")");
 }
 }}}
+
+So, i think that gives something to play around with. To see what else can be done, simple check the methods in _de.thesuntoucher.jigg.Jigg_. The class should provide a method for every endpoint in described in the [http://apidoc.digg.com/ api]
