@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="project" default="jar">
+	
+	<property name="version" value="0.1"/>
+
+   
+    <target name="jar" description="">
+    	
+        <mkdir dir="build"/>
+    	<buildnumber/>
+    	<echo message="creating jar, version: ${version}, build: ${build.number}"/>
+    	
+    	<jar destfile="build/jigg-${version}.jar" >
+    		<fileset dir="classes" includes="**/*"
+    			excludes="**/test/"/>
+    	</jar>
+    </target>
+
+</project>
