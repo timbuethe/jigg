@@ -57,9 +57,11 @@ public class Story {
 
 	/**
 	 * @param id the id to set
+	 * @return this
 	 */
-	public void setId(int id) {
+	public Story setId(int id) {
 		this.id = id;
+		return this;
 	}
 
 	/**
@@ -71,9 +73,11 @@ public class Story {
 
 	/**
 	 * @param diggs the diggs to set
+	 * @return this
 	 */
-	public void setDiggs(int diggs) {
+	public Story setDiggs(int diggs) {
 		this.diggs = diggs;
+		return this;
 	}
 
 	/**
@@ -85,9 +89,11 @@ public class Story {
 
 	/**
 	 * @param comments the comments to set
+	 * @return this
 	 */
-	public void setComments(int comments) {
+	public Story setComments(int comments) {
 		this.comments = comments;
+		return this;
 	}
 
 	/**
@@ -99,9 +105,11 @@ public class Story {
 
 	/**
 	 * @param title the title to set
+	 * @return this
 	 */
-	public void setTitle(String title) {
+	public Story setTitle(String title) {
 		this.title = title;
+		return this;
 	}
 
 	/**
@@ -113,9 +121,11 @@ public class Story {
 
 	/**
 	 * @param description the description to set
+	 * @return this
 	 */
-	public void setDescription(String description) {
+	public Story setDescription(String description) {
 		this.description = description;
+		return this;
 	}
 
 	/**
@@ -127,9 +137,11 @@ public class Story {
 
 	/**
 	 * @param link the link to set
+	 * @return this
 	 */
-	public void setLink(String link) {
+	public Story setLink(String link) {
 		this.link = link;
+		return this;
 	}
 
 	/**
@@ -141,9 +153,11 @@ public class Story {
 
 	/**
 	 * @param href the href to set
+	 * @return this
 	 */
-	public void setHref(String href) {
+	public Story setHref(String href) {
 		this.href = href;
+		return this;
 	}
 
 	/**
@@ -155,9 +169,11 @@ public class Story {
 
 	/**
 	 * @param status the status to set
+	 * @return this
 	 */
-	public void setStatus(Status status) {
+	public Story setStatus(Status status) {
 		this.status = status;
+		return this;
 	}
 
 	/**
@@ -169,9 +185,11 @@ public class Story {
 
 	/**
 	 * @param submitDate the submitDate to set
+	 * @return this
 	 */
-	public void setSubmitDate(Date submitDate) {
+	public Story setSubmitDate(Date submitDate) {
 		this.submitDate = submitDate;
+		return this;
 	}
 
 	/**
@@ -183,9 +201,11 @@ public class Story {
 
 	/**
 	 * @param user the user to set
+	 * @return this
 	 */
-	public void setUser(User user) {
+	public Story setUser(User user) {
 		this.user = user;
+		return this;
 	}
 
 	/**
@@ -197,9 +217,11 @@ public class Story {
 
 	/**
 	 * @param topic the topic to set
+	 * @return this
 	 */
-	public void setTopic(Topic topic) {
+	public Story setTopic(Topic topic) {
 		this.topic = topic;
+		return this;
 	}
 
 	/**
@@ -211,9 +233,11 @@ public class Story {
 
 	/**
 	 * @param container the container to set
+	 * @return this
 	 */
-	public void setContainer(Container container) {
+	public Story setContainer(Container container) {
 		this.container = container;
+		return this;
 	}
 
 	/* (non-Javadoc)
