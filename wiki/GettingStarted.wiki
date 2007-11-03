@@ -10,15 +10,45 @@ You can read the Basic Concepts of the digg.com API [http://apidoc.digg.com/Basi
 
 = Examples =
 
-First of all you have to construct a jigg object. 
+First of all you have to construct a jigg object. While doing this you have to provide an [http://apidoc.digg.com/ApplicationKeys application key]. This just have to be a valid URL.
 
 {{{
-Jigg jigg = new Jigg("http://www.thesuntoucher.de");
+Jigg jigg = new Jigg("http://code.google.com/p/jigg/");
 }}}
 
 == Stories ==
+
+List stories from topic _apple_:
 {{{
 for (Story story : jigg.getStories(new Topic("Apple", "apple"))) {
- System.out.println(story.getTitle());
+  System.out.println(story.getTitle());
+}
+}}}
+
+Get a story by id:
+{{{
+System.out.println(jigg.getStory(1489));
+}}}
+
+List stories by id list:
+{{{
+for (Story story : jigg.getStories(984,1489,8575,174)) {
+  System.out.println(story.getTitle() + "(" + story.getId() + ")");
+}
+}}}
+
+List popular stories:
+{{{
+for (Story story : jigg.getPopularStories()) {
+  System.out.println(story.getTitle() + "(" + story.getId() + ")");
+}
+}}}
+
+== Topics ==
+
+List topics:
+{{{
+for (Topic topic : jigg.getTopics()) {
+  System.out.println(topic.getName() + "(" + topic.getShortName() + ")");
 }
 }}}
