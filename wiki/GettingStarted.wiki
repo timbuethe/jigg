@@ -1,0 +1,24 @@
+#summary short description on how to use jigg
+
+= Introduction =
+
+This page should give you a short overview, some examples and links.
+
+= Overview =
+
+You can read the Basic Concepts of the digg.com API [http://apidoc.digg.com/BasicConcepts here]. In a nutshell, you have to call some URL like `http://services.digg.com/stories...` and you'll get the answer (among other formats) as XML. *Jigg* wraps this nicely and provides methods for all the API endpoints so you don't have to build an URL, parse the response and handle http errors etc.
+
+= Examples =
+
+First of all you have to construct a jigg object. 
+
+{{{
+Jigg jigg = new Jigg("http://www.thesuntoucher.de");
+}}}
+
+== Stories ==
+{{{
+for (Story story : jigg.getStories(new Topic("Apple", "apple"))) {
+ System.out.println(story.getTitle());
+}
+}}}
