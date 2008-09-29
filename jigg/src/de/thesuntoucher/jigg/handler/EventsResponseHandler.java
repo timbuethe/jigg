@@ -34,10 +34,13 @@ public class EventsResponseHandler<E> extends ResponseHandler {
 		if(name.equals("events")){
 			events.setTimestamp(new Long(attributes.getValue("timestamp")));
 			events.setMinDate(new Date(new Long(attributes.getValue("min_date"))));
-			events.setMaxDate(new Date(new Long(attributes.getValue("max_date"))));
 			events.setTotal(new Integer(attributes.getValue("total")));
 			events.setOffset(new Integer(attributes.getValue("offset")));
 			events.setCount(new Integer(attributes.getValue("count")));
+
+			if(attributes.getValue("max_date") != null){
+				events.setMaxDate(new Date(new Long(attributes.getValue("max_date"))));
+			}
 		}
 		
 		// <comment date="1176764399" id="6191927" story="1778714" up="2" down="0" replies="0" replyto="6188301" user="adml_shake">

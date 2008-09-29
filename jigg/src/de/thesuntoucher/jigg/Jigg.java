@@ -4,7 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.List;
 
 import javax.xml.parsers.SAXParserFactory;
 
@@ -464,17 +463,8 @@ public class Jigg {
 	 * @return A list of stories with the given ids. (E.g., GET /stories/984,1489,8575,174)
 	 */
 	public Stories getStories(int...storyIds) {
-		
-		StringBuilder ids = new StringBuilder();
-		for (int i = 0; i < storyIds.length; i++) {
-			ids.append(storyIds[i]);
-			if(i+1 < storyIds.length){
-				ids.append(',');
-			}
-		}
-		
 		StoriesResponseHandler handler = new StoriesResponseHandler();
-		fetch(url("stories/" + ids, new StoriesArguments()), handler);
+		fetch(url("stories/" + join(storyIds), new StoriesArguments()), handler);
 		return handler.getStories();
 	}
 	
@@ -561,6 +551,153 @@ public class Jigg {
 		fetch(url("error/" + code, args), handler);
 		return handler.getErrors().isEmpty() ? null : handler.getErrors().get(0);
 	}
+
+	/**
+	 * GET /stories/diggs
+     * 
+	 * @return All diggs.
+	 */
+	public Events<Digg> getDiggs(){
+		return getDiggs(new EventsArguments());
+	}
+	
+	/**
+	 * GET /stories/diggs
+	 * 
+	 * @param args 
+	 * @return All diggs.
+	 */
+	public Events<Digg> getDiggs(EventsArguments args){
+		EventsResponseHandler<Digg> handler = new EventsResponseHandler<Digg>();
+		fetch(url("stories/diggs", args), handler);
+		return handler.getEvents();
+	}
+	
+	/**
+	 * GET /stories/popular/diggs
+     * 
+	 * @return All diggs on popular stories.
+	 */
+	public Events<Digg> getPopularDiggs(){
+		return getPopularDiggs(new EventsArguments());
+	}
+	
+	/**
+	 * GET /stories/popular/diggs
+	 * 
+	 * @param args 
+	 * @return All diggs on popular stories.
+	 */
+	public Events<Digg> getPopularDiggs(EventsArguments args){
+		EventsResponseHandler<Digg> handler = new EventsResponseHandler<Digg>();
+		fetch(url("/stories/popular/diggs", args), handler);
+		return handler.getEvents();
+	}
+	
+	/**
+	 * GET /stories/upcoming/diggs
+	 * 
+	 * @return All diggs on upcoming stories.
+	 */
+	public Events<Digg> getUpcomingDiggs(){
+		return getUpcomingDiggs(new EventsArguments());
+	}
+	
+	/**
+	 * GET /stories/upcoming/diggs
+	 * 
+	 * @param args 
+	 * @return All diggs on upcoming stories.
+	 */
+	public Events<Digg> getUpcomingDiggs(EventsArguments args){
+		EventsResponseHandler<Digg> handler = new EventsResponseHandler<Digg>();
+		fetch(url("/stories/popular/diggs", args), handler);
+		return handler.getEvents();
+	}
+	
+	/**
+	 * GET /story/{story id}/diggs
+	 * 404 Not Found response if the story does not exist.
+	 * 
+	 * @param storyId
+	 * @param args
+	 * @return All diggs for a given story.
+	 */
+	public Events<Digg> getDiggs(int storyId){
+		return getDiggs(storyId, new EventsArguments());
+	}
+	
+	/**
+	 * GET /story/{story id}/diggs
+	 * 404 Not Found response if the story does not exist.
+	 * 
+	 * @param storyId
+	 * @param args
+	 * @return All diggs for a given story.
+	 */
+	public Events<Digg> getDiggs(int storyId, EventsArguments args){
+		EventsResponseHandler<Digg> handler = new EventsResponseHandler<Digg>();
+		fetch(url("/stories/" + storyId + "/diggs", args), handler);
+		return handler.getEvents();
+	}
+
+	// TODO
+//	GET /stories/{comma-separated list of story ids}/diggs
+//	    All diggs for a list of stories with the given ids. (E.g., GET /stories/984,1489,8575,174/diggs)
+//	GET /user/{user name}/diggs
+//	    One user's diggs for all stories.
+//	    404 Not Found response if the user is unknown. 
+	
+	/**
+	 * GET /users/{comma-separated list of user names}/diggs
+	 * 404 Not Found response if any of the users is unknown.
+	 * 
+	 * @param args 
+	 * @param usernames comma separated list of usernamens, at most 100 user names may be listed.
+	 * @return Several users' diggs for all stories.
+	 */
+	public Events<Digg> getUsersDiggs(EventsArguments args, String...usernames){
+		
+		if(usernames.length > 100){
+			throw new JiggException(
+					new IllegalArgumentException("usernames > 100"));
+		}
+				
+		EventsResponseHandler<Digg> handler = new EventsResponseHandler<Digg>();
+		fetch(url("/users/" + join(usernames) + "/diggs", args), handler);
+		return handler.getEvents();
+	}
+	
+//	TODO
+//
+//	GET /story/{story id}/user/{user name}/digg
+//	    One user digg for a given story.
+//	    404 Not Found response if the user has not dugg the story.
+//	GET /stories/comments
+//	    All comments.
+//	GET /stories/popular/comments
+//	    All comments on popular stories.
+//	GET /stories/upcoming/comments
+//	    All comments on upcoming stories.
+//	GET /stories/{comma-separated list of story ids}/comments
+//	    All comments for a list of stories with the given ids. (e.g. GET /stories/984,1489,8575,174/comments) At most 100 story ids may be listed
+//	GET /story/{story id}/comments
+//	    Top-level comments for a given story.
+//	    404 Not Found response if the story does not exist.
+//	GET /user/{user name}/comments
+//	    One user's comments for all stories.
+//	    404 Not Found response if the user does not exist.
+//	GET /users/{comma-separated list of user names}/comments
+//	    Several users' comments for all stories. (e.g. GET /users/sbwms,kevinrose/comments) At most 100 user names may be listed.
+//	    404 Not Found response if any of the users is unknown.
+//	GET /story/{story id}/comment/{comment id}
+//	    One comment for a given story.
+//	    404 Not Found response if the story or comment do not exist.
+//	GET /story/{story id}/comment/{comment id}/replies
+//	    One level of replies to one comment for a given story.
+//	    404 Not Found response if the story or comment do not exist. 
+	
+	
 	
 	/**
 	 * @param url
@@ -615,6 +752,23 @@ public class Jigg {
 		} catch (UnsupportedEncodingException e) {
 			throw new JiggException(e);
 		}
+	}
+	
+	private static String join(Object...values){
+		return join(",", values);
+	}
+	
+	private static String join(String separator, Object...values){
+		
+		StringBuilder result = new StringBuilder();
+		for (int i = 0; i < values.length; i++) {
+			result.append(values[i]);
+			if(i+1 < values.length){
+				result.append(separator);
+			}
+		}
+		
+		return result.toString();
 	}
 	
 //	TODO: i think i can't implement this, because of point 4 
