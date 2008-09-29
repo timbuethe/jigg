@@ -4,7 +4,7 @@ package de.thesuntoucher.jigg.args;
  * @author tbuethe
  *
  */
-public abstract class Arguments {
+public abstract class Arguments<T> {
 	
 	/** An empty Argument-Objekt that does nothing */
 	public static final Arguments EMPTY_ARGUMENTS = new Arguments(){
@@ -25,9 +25,9 @@ public abstract class Arguments {
 	 * @param offset the offset to set
 	 * @return this
 	 */
-	public Arguments setOffset(int offset) {
+	public T setOffset(int offset) {
 		this.offset = offset;
-		return this;
+		return (T) this;
 	}
 	
 	/**
@@ -38,7 +38,7 @@ public abstract class Arguments {
 	 * @param count the count to set
 	 * @return this
 	 */
-	public Arguments setCount(int count) {
+	public T setCount(int count) {
 		
 		if(count < 0 || count > 100){
 			throw new IllegalArgumentException(
@@ -46,7 +46,7 @@ public abstract class Arguments {
 		}
 		
 		this.count = count;
-		return this;
+		return (T) this;
 	}
 
 	/**

@@ -4,7 +4,7 @@ package de.thesuntoucher.jigg.args;
  * http://apidoc.digg.com/ListUsers#Arguments
  *
  */
-public class UsersArguments extends Arguments {
+public class UsersArguments extends Arguments<UsersArguments> {
 	
 	/** username-asc: A-Z */
 	public static final String SORT_USERNAME_ASC = "username-asc";
