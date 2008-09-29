@@ -11,7 +11,7 @@ import de.thesuntoucher.jigg.Jigg;
  * implements <a href="http://apidoc.digg.com/ListStories#Arguments">this list of arguments</a>
  *
  */
-public class StoriesArguments extends Arguments {
+public class StoriesArguments extends Arguments<StoriesArguments> {
 	
 	/** newest-promoted first (default for popular stories) */
 	public static final String SORT_PROMOTE_DATE_DESC = "promote_date-desc";
@@ -107,10 +107,10 @@ public class StoriesArguments extends Arguments {
 	@Override
 	public String toString() {
 		return super.toString() + 
-			(minSubmit != null ? "&min_submit_date=" + minSubmit.getTime() : "") + 
-			(maxSubmit != null ? "&max_submit_date=" + maxSubmit.getTime() : "") + 
-			(minPromote != null ? "&min_promote_date=" + minPromote.getTime() : "") + 
-			(maxPromote != null ? "&max_promote_date=" + maxPromote.getTime() : "") + 
+			(minSubmit != null ? "&min_submit_date=" + minSubmit.getTime() / 1000 : "") + 
+			(maxSubmit != null ? "&max_submit_date=" + maxSubmit.getTime() / 1000 : "") + 
+			(minPromote != null ? "&min_promote_date=" + minPromote.getTime() / 1000 : "") + 
+			(maxPromote != null ? "&max_promote_date=" + maxPromote.getTime() / 1000 : "") + 
 			(domain != null ? "&domain=" + domain : "") + 
 			(link != null ? "&link=" + link : "") + 
 			(sort != null ? "&sort=" + sort : "");

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="project" default="jar">
 	
-	<property name="version" value="0.1"/>
+	<property name="version" value="0.2"/>
 
-   
     <target name="jar" description="">
     	
         <mkdir dir="build"/>

@@ -9,7 +9,7 @@ import java.util.Date;
  * implements <a href="http://apidoc.digg.com/ListEvents#Arguments">this list of arguments</a>
  * 
  */
-public class EventsArguments extends Arguments {
+public class EventsArguments extends Arguments<EventsArguments> {
 	
 	/** newest first (default) */
 	public static final String SORT_DATE_DESC = "date-desc";
