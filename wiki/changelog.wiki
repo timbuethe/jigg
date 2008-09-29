@@ -1,0 +1,10 @@
+#version history and changelog
+
+= Versions =
+
+0.2 Sep 29, 2008
+  * refactoring of the Arguments classes
+  * fixed wrong handling of dates, using seconds instead of milliseconds since 1.1.1970
+
+0.1 Nov 03, 2007
+  * first version released
