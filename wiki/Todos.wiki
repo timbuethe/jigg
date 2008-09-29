@@ -1,6 +1,7 @@
+#summary todo list
+
 = Todo =
 
   * implement [http://apidoc.digg.com/ListEvents events]
   * implement [http://apidoc.digg.com/ListGalleryPhotos galleries/photos]
-  * review the arguments-classes
   * write some junit tests
