@@ -12,7 +12,7 @@ import de.thesuntoucher.jigg.data.*;
  * http://apidoc.digg.com/ListStories
  * 
  * <stories timestamp="1176997447" min_date="1174405440" total="3819" offset="0" count="3">
- * <story id="1806025" link="http://..." submit_date="1176997081" diggs="1" comments="0" href="http://digg.com/..." status="upcoming">
+ * <story id="1806025" link="http://..." submit_date="1176997081" diggs="1" comments="0" media="news" href="http://digg.com/..." status="upcoming">
  *   <title>...</title>
  *   <description>...</description>
  *   <user name="leoinc" icon="http://digg.com/img/...png" registered="1160475488" profileviews="265" />
@@ -30,13 +30,18 @@ public class StoriesResponseHandler extends ResponseHandler {
 			
 			// <story id="" link="" submit_date="" diggs="" comments="0" status="upcoming" href="http://digg.com/apple/...">
 			if(name.equals("story")){
+				
+				String promoteDate = attributes.getValue("promote_date");
+				
 				story = new Story(
 					new Integer(attributes.getValue("id")), 
 					attributes.getValue("link"),
 					new Date(new Long(attributes.getValue("submit_date"))),
+					promoteDate == null ? null : new Date(new Long(promoteDate)),
 					new Integer(attributes.getValue("diggs")),
 					new Integer(attributes.getValue("comments")),
 					Status.valueOf(attributes.getValue("status")),
+					Media.valueOf(attributes.getValue("media").toUpperCase()),
 					attributes.getValue("href"));
 				stories.add(story);
 			}
