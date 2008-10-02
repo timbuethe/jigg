@@ -256,7 +256,7 @@ public class Jigg {
 	 * @return Popular stories.
 	 */
 	public Stories getPopularStories() {
-		return getStories(new StoriesArguments());
+		return getPopularStories(new StoriesArguments());
 	}
 	
 	/**
@@ -699,6 +699,13 @@ public class Jigg {
 	
 	
 	
+
+//	GET /media
+//	    Get a list of all media.
+//	GET /medium/{medium short_name}
+//	    Get a specified medium. 
+	
+	
 	/**
 	 * @param url
 	 * @param handler
@@ -715,6 +722,37 @@ public class Jigg {
 			throw new JiggException(e);
 		}
 	}
+	
+//	/**
+//	 * @param url
+//	 * @param handler
+//	 */
+//	private void fetch(URL url, ResponseHandler handler){
+//		
+//		try {
+//
+//			System.out.println("-- fetch Url: " + url.toExternalForm());
+//			
+//	        
+//	        HttpClient client = new HttpClient();
+//	        GetMethod get = new GetMethod(url.toExternalForm());
+//	        int statusCode = client.executeMethod(get);
+//	        if (statusCode != HttpStatus.SC_OK) {
+//	          System.err.println("Method failed: " + get.getStatusLine());
+//	        }
+//
+//	        SAXParserFactory factory = SAXParserFactory.newInstance();
+//	        factory.newSAXParser().parse(get.getResponseBodyAsStream(), handler);
+//	        
+////	        System.out.println(get.getResponseBodyAsString());
+//	        
+//	        get.releaseConnection();
+//
+//	        
+//		} catch (Exception e) {
+//			throw new JiggException(e);
+//		}
+//	}
 	
 	/**
 	 * @param endpoint
