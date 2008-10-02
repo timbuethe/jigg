@@ -2,6 +2,17 @@
 
 = Versions =
 
+0.4 Oct 02, 2008
+  * fixed getPopularStories() to use getPopularStories(StoriesArguments) instead of getStories(StoriesArguments)
+  * created Media as an enum of News, Videos, Images
+  * added "SORT_DIGG_COUNT_ASC" and "SORT_DIGG_COUNT_DESC to StoriesArguments
+  * added setMinDate(Date) and setMaxDate(Date) to StoriesArguments
+  * added setMedia(Media...) to StoriesArguments
+  * added getMedia() to Story
+
+0.3 Oct 01, 2008
+  * implemented more endpoints
+
 0.2 Sep 29, 2008
   * refactoring of the Arguments classes
   * fixed wrong handling of dates, using seconds instead of milliseconds since 1.1.1970
