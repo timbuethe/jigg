@@ -3,13 +3,24 @@ package de.thesuntoucher.jigg.data;
 import java.util.Date;
 
 /**
- * <story id="3552578" link="" submit_date="" diggs="1" comments="0"
- * status="upcoming"
- * href="http://digg.com/apple/The_History_Of_Apple_s_Products_From_The_Apple_1_Through_The_New_iMac">
- * <title></title> <description></description> <user name="darkrain1"
- * icon="http://digg.com/img/udl.png" registered="1189709258"
- * profileviews="17"/> <topic name="Apple" short_name="apple"/> <container
- * name="Technology" short_name="technology"/> </story>
+ * <story 
+ * 	id="4368401" 
+ * 	link="http://maxsangalli.altervista.org/?p=45" 
+ * 	submit_date="1196891534" 
+ * 	diggs="1" 
+ * 	comments="0" 
+ * 	status="upcoming" 
+ * 	media="news" 
+ * 	href="http://digg.com/linux_unix/Jukebox_con_Linux">
+ * 
+ * 		<title>Jukebox con Linux</title>
+ * 		<description>Jukebox with Linux</description>
+ * 		<user name="ilsanga" icon="http://digg.com/img/udl.png" registered="1196891377" profileviews="0" />
+ * 		<topic name="Linux/Unix" short_name="linux_unix" />
+ * 		<container name="Technology" short_name="technology" />
+ * 		<thumbnail originalwidth="390" originalheight="387" contentType="image/jpeg" src="http://digg.com/linux_unix/Jukebox_con_Linux/t.jpg" width="80" height="80" />
+ * </story>
+ * 
  */
 
 public class Story {
@@ -17,10 +28,11 @@ public class Story {
 	private int id, diggs, comments;
 	private String title, description, link, href;
 	private Status status;
-	private Date submitDate;
+	private Date submitDate, promoteDate;
 	private User user;
 	private Topic topic;
 	private Container container;
+	private Media media;
 
 	/**
 	 * 
@@ -38,13 +50,15 @@ public class Story {
 	 * @param status
 	 * @param href
 	 */
-	public Story(int id, String link, Date submitDate, int diggs, int comments, Status status, String href) {
+	public Story(int id, String link, Date submitDate, Date promoteDate, int diggs, int comments, Status status, Media media, String href) {
 		this.id = id;
 		this.link = link;
 		this.submitDate = submitDate;
+		this.promoteDate = promoteDate;
 		this.diggs = diggs;
 		this.comments = comments;
 		this.status = status;
+		this.media = media;
 		this.href = href;
 	}
 
@@ -191,6 +205,22 @@ public class Story {
 		this.submitDate = submitDate;
 		return this;
 	}
+	
+	/**
+	 * @return
+	 */
+	public Date getPromoteDate() {
+		return promoteDate;
+	}
+
+	/**
+	 * @param promoteDate
+	 * @return this
+	 */
+	public Story setPromoteDate(Date promoteDate) {
+		this.promoteDate = promoteDate;
+		return this;
+	}
 
 	/**
 	 * @return the user
@@ -238,6 +268,13 @@ public class Story {
 	public Story setContainer(Container container) {
 		this.container = container;
 		return this;
+	}
+	
+	/**
+	 * @return the media type
+	 */
+	public Media getMedia() {
+		return media;
 	}
 
 	/* (non-Javadoc)
