@@ -1,0 +1,84 @@
+#summary Alphabetical List of Endpoints and jigg Methods to access them
+
+= Introduction =
+
+This refers to the [http://apidoc.digg.com/CompleteList Alphabetical List of Endpoints] and names the jigg-Method for each. All methods can be found in *de.thesuntoucher.jigg.Jigg*
+
+
+= Endpoints and jigg Methods =
+
+_todo means 'not yet in this list, but may exist'_
+
+||/containers (List Containers)||todo||
+||/container/{container short_name} (List Containers)||todo||
+||/errors (List Errors)||todo||
+||/error/{code} (List Errors)||todo||
+||/galleryphotos (List Gallery Photos)||todo||
+||/galleryphotos/comments (List Gallery Photos)||todo||
+||/galleryphoto/{id} (List Gallery Photos)||todo||
+||/galleryphoto/{id}/comments (List Gallery Photos)||todo||
+||/galleryphoto/{id}/comment/{id} (List Gallery Photos)||todo||
+||/galleryphoto/{id}/comment/{id}/replies (List Gallery Photos)||todo||
+||/galleryphotos/{list} (List Gallery Photos)||todo||
+||/galleryphotos/{list}/comments (List Gallery Photos)||todo||
+||/media (List Media)||todo||
+||/medium/{medium short_name} (List Media)||todo||
+||/stories (List Stories)||todo||
+||/stories/{comma-separated list of story ids} (List Stories)||todo||
+||/stories/{comma-separated list of story ids}/comments (List Events)||todo||
+||/stories/{comma-separated list of story ids}/diggs (List Events)||todo||
+||/stories/comments (List Events)||todo||
+||/stories/container/{container name} (List Stories)||todo||
+||/stories/container/{container name}/hot (List Stories)||todo||
+||/stories/container/{container name}/popular (List Stories)||todo||
+||/stories/container/{container name}/top (List Stories)||todo||
+||/stories/container/{container name}/upcoming (List Stories)||todo||
+||/stories/diggs (List Events)||todo||
+||/stories/hot (List Stories)||todo||
+||/stories/popular (List Stories)||getPopularStories(), getPopularStories(StoriesArguments args)||
+||/stories/popular/comments (List Events)||todo||
+||/stories/popular/diggs (List Events)||todo||
+||/stories/top (List Stories)||todo||
+||/stories/topic/{topic name} (List Stories)||todo||
+||/stories/topic/{topic name}/hot (List Stories)||todo||
+||/stories/topic/{topic name}/popular (List Stories)||todo||
+||/stories/topic/{topic name}/top (List Stories)||todo||
+||/stories/topic/{topic name}/upcoming (List Stories)||todo||
+||/stories/upcoming (List Stories)||todo||
+||/stories/upcoming/comments (List Events)||todo||
+||/stories/upcoming/diggs (List Events)||todo||
+||/story/{story id} (List Stories)||todo||
+||/story/{story id}/activity (Activity, deprecated)||todo||
+||/story/{story id}/activity/comments (Activity, deprecated)||todo||
+||/story/{story id}/activity/diggs (Activity, deprecated)||todo||
+||/story/{story id}/comments (List Events)||todo||
+||/story/{story id}/diggs (List Events)||todo||
+||/story/{story id}/comment/{comment id} (List Events)||todo||
+||/story/{story id}/comment/{comment id}/replies (List Events)||todo||
+||/story/{story id}/user/{user name}/digg (List Events)||todo||
+||/topic/{topic short_name} _(seems to be missing in the original list?)_||getTopics(String topic), getTopics(String topic, TopicsArguments args)||
+||/topics (List Topics)||getTopics(), getTopics(TopicsArguments args)||
+||/user/{user name} (List Users)||todo||
+||/user/{user name}/activity (Activity, deprecated)||todo||
+||/user/{user name}/activity/comments (Activity, deprecated)||todo||
+||/user/{user name}/activity/diggs (Activity, deprecated)||todo||
+||/user/{user name}/commented (List Stories)||todo||
+||/user/{user name}/comments (List Events)||todo||
+||/user/{user name}/diggs (List Events)||todo||
+||/user/{user name}/dugg (List Stories)||todo||
+||/user/{user name}/fan/{fan user name} (List Users)||todo||
+||/user/{user name}/fans (List Users)||todo||
+||/user/{user name}/friend/{friend user name} (List Users)||todo||
+||/user/{user name}/friends (List Users)||todo||
+||/user/{user name}/friends/commented (List Stories)||todo||
+||/user/{user name}/friends/dugg (List Stories)||todo||
+||/user/{user name}/friends/commented (List Stories)||todo||
+||/user/{user name}/friends/popular (List Stories)||todo||
+||/user/{user name}/friends/submissions (List Stories)||todo||
+||/user/{user name}/friends/upcoming (List Stories)||todo||
+||/user/{user name}/popular (List Stories)||todo||
+||/user/{user name}/submissions (List Stories)||todo||
+||/users (List Users)||todo||
+||/user/{user name}/upcoming (List Stories)||todo||
+||/users/{comma-separated list of user names}/comments (List Events)||todo||
+||/users/{comma-separated list of user names}/diggs (List Events)||todo||
