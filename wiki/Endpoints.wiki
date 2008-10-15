@@ -24,30 +24,30 @@ _todo means 'not yet in this list, but may exist'_
 ||/media (List Media)||todo||
 ||/medium/{medium short_name} (List Media)||todo||
 ||/stories (List Stories)||getStories(), getStories(StoriesArguments args)||
-||/stories/{comma-separated list of story ids} (List Stories)||todo||
+||/stories/{comma-separated list of story ids} (List Stories)||getStories(int...storyIds)||
 ||/stories/{comma-separated list of story ids}/comments (List Events)||todo||
 ||/stories/{comma-separated list of story ids}/diggs (List Events)||todo||
 ||/stories/comments (List Events)||todo||
-||/stories/container/{container name} (List Stories)||todo||
+||/stories/container/{container name} (List Stories)||getStories(Container container), getStories(Container container, StoriesArguments args)||
 ||/stories/container/{container name}/hot (List Stories)||todo||
-||/stories/container/{container name}/popular (List Stories)||todo||
+||/stories/container/{container name}/popular (List Stories)||getPopularStories(Container container), getPopularStories(Container container, StoriesArguments args)||
 ||/stories/container/{container name}/top (List Stories)||todo||
-||/stories/container/{container name}/upcoming (List Stories)||todo||
+||/stories/container/{container name}/upcoming (List Stories)||getUpcomingStories(Container container), getUpcomingStories(Container container, StoriesArguments args)||
 ||/stories/diggs (List Events)||todo||
 ||/stories/hot (List Stories)||todo||
 ||/stories/popular (List Stories)||getPopularStories(), getPopularStories(StoriesArguments args)||
 ||/stories/popular/comments (List Events)||todo||
 ||/stories/popular/diggs (List Events)||todo||
 ||/stories/top (List Stories)||todo||
-||/stories/topic/{topic name} (List Stories)||todo||
+||/stories/topic/{topic name} (List Stories)||getStories(Topic topic), getStories(Topic topic, StoriesArguments args)||
 ||/stories/topic/{topic name}/hot (List Stories)||todo||
-||/stories/topic/{topic name}/popular (List Stories)||todo||
+||/stories/topic/{topic name}/popular (List Stories)||getPopularStories(Topic topic), getPopularStories(Topic topic, StoriesArguments args)||
 ||/stories/topic/{topic name}/top (List Stories)||todo||
-||/stories/topic/{topic name}/upcoming (List Stories)||todo||
-||/stories/upcoming (List Stories)||todo||
+||/stories/topic/{topic name}/upcoming (List Stories)||getUpcomingStories(Topic topic), getUpcomingStories(Topic topic, StoriesArguments args)||
+||/stories/upcoming (List Stories)||getUpcomingStories(), getUpcomingStories(StoriesArguments args)||
 ||/stories/upcoming/comments (List Events)||todo||
 ||/stories/upcoming/diggs (List Events)||todo||
-||/story/{story id} (List Stories)||todo||
+||/story/{story id} (List Stories)||getStory(int storyId)||
 ||/story/{story id}/activity (Activity, deprecated)||todo||
 ||/story/{story id}/activity/comments (Activity, deprecated)||todo||
 ||/story/{story id}/activity/diggs (Activity, deprecated)||todo||
