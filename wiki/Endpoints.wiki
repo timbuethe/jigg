@@ -23,7 +23,7 @@ _todo means 'not yet in this list, but may exist'_
 ||/galleryphotos/{list}/comments (List Gallery Photos)||todo||
 ||/media (List Media)||todo||
 ||/medium/{medium short_name} (List Media)||todo||
-||/stories (List Stories)||todo||
+||/stories (List Stories)||getStories(), getStories(StoriesArguments args)||
 ||/stories/{comma-separated list of story ids} (List Stories)||todo||
 ||/stories/{comma-separated list of story ids}/comments (List Events)||todo||
 ||/stories/{comma-separated list of story ids}/diggs (List Events)||todo||
@@ -56,20 +56,20 @@ _todo means 'not yet in this list, but may exist'_
 ||/story/{story id}/comment/{comment id} (List Events)||todo||
 ||/story/{story id}/comment/{comment id}/replies (List Events)||todo||
 ||/story/{story id}/user/{user name}/digg (List Events)||todo||
-||/topic/{topic short_name} _(seems to be missing in the original list?)_||getTopics(String topic), getTopics(String topic, TopicsArguments args)||
+||/topic/{topic short_name} _([http://groups.google.de/group/diggapi/browse_thread/thread/61249e07e29f5559 missing in the original list?])_||getTopics(String topic), getTopics(String topic, TopicsArguments args)||
 ||/topics (List Topics)||getTopics(), getTopics(TopicsArguments args)||
-||/user/{user name} (List Users)||todo||
-||/user/{user name}/activity (Activity, deprecated)||todo||
-||/user/{user name}/activity/comments (Activity, deprecated)||todo||
-||/user/{user name}/activity/diggs (Activity, deprecated)||todo||
+||/user/{user name} (List Users)||getUser(String username), getUser(String username, UsersArguments args)||
+||/user/{user name}/activity (Activity, deprecated)||_will not be implemented_||
+||/user/{user name}/activity/comments (Activity, deprecated)||_will not be implemented_||
+||/user/{user name}/activity/diggs (Activity, deprecated)||_will not be implemented_||
 ||/user/{user name}/commented (List Stories)||todo||
 ||/user/{user name}/comments (List Events)||todo||
 ||/user/{user name}/diggs (List Events)||todo||
 ||/user/{user name}/dugg (List Stories)||todo||
-||/user/{user name}/fan/{fan user name} (List Users)||todo||
-||/user/{user name}/fans (List Users)||todo||
-||/user/{user name}/friend/{friend user name} (List Users)||todo||
-||/user/{user name}/friends (List Users)||todo||
+||/user/{user name}/fan/{fan user name} (List Users)||getUserFan(String username, String fanname), getUserFan(String username, String fanname, UsersArguments args)||
+||/user/{user name}/fans (List Users)||getUserFans(String username), getUserFans(String username, UsersArguments args)||
+||/user/{user name}/friend/{friend user name} (List Users)||getUserFriend(String username, String friendname), getUserFriend(String username, String friendname, UsersArguments args)||
+||/user/{user name}/friends (List Users)||getUserFriends(String username), getUserFriends(String username, UsersArguments args)||
 ||/user/{user name}/friends/commented (List Stories)||todo||
 ||/user/{user name}/friends/dugg (List Stories)||todo||
 ||/user/{user name}/friends/commented (List Stories)||todo||
@@ -78,7 +78,7 @@ _todo means 'not yet in this list, but may exist'_
 ||/user/{user name}/friends/upcoming (List Stories)||todo||
 ||/user/{user name}/popular (List Stories)||todo||
 ||/user/{user name}/submissions (List Stories)||todo||
-||/users (List Users)||todo||
+||/users (List Users)||getUsers(), getUsers(UsersArguments args)||
 ||/user/{user name}/upcoming (List Stories)||todo||
 ||/users/{comma-separated list of user names}/comments (List Events)||todo||
 ||/users/{comma-separated list of user names}/diggs (List Events)||todo||
