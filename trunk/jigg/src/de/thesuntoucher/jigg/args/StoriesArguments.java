@@ -73,6 +73,24 @@ public class StoriesArguments extends Arguments<StoriesArguments> {
 		this.maxPromote = maxPromote;
 		return this;
 	}
+	
+	/**
+	 * @param minDate
+	 * @return this
+	 */
+	public StoriesArguments setMinDate(Date minDate) {
+		this.minDate = minDate;
+		return this;
+	}
+
+	/**
+	 * @param maxDate
+	 * @return this
+	 */
+	public StoriesArguments setMaxDate(Date maxDate) {
+		this.maxDate = maxDate;
+		return this;
+	}
 
 	/**
 	 * @param domain the domain to set
@@ -102,11 +120,17 @@ public class StoriesArguments extends Arguments<StoriesArguments> {
 	}
 	
 	private String getMediaString(){
+		
+		if(media == null || media.isEmpty()){
+			return "all";
+		}
+		
 		StringBuilder sb = new StringBuilder();
 		for (Media media : this.media) {
-			sb.append(media.getShortName());
+			sb.append(media.getShortName() + ",");
 		}
-		return sb.toString();
+		
+		return sb.substring(0, sb.length()-1);
 	}
 
 	/**

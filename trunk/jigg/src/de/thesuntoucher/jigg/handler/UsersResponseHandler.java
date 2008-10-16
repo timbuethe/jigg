@@ -1,6 +1,6 @@
 package de.thesuntoucher.jigg.handler;
 
-import java.util.Date;
+import static de.thesuntoucher.jigg.util.JiggDateUtil.parse;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -28,7 +28,7 @@ public class UsersResponseHandler extends ResponseHandler {
 			users.add(new User(
 					attributes.getValue("name"), 
 					attributes.getValue("icon"), 
-					new Date(new Long(attributes.getValue("registered"))), 
+					parse(attributes.getValue("registered")), 
 					new Integer(attributes.getValue("profileviews"))));
 		}
 		

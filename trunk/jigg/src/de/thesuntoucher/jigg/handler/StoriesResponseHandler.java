@@ -1,6 +1,6 @@
 package de.thesuntoucher.jigg.handler;
 
-import java.util.Date;
+import static de.thesuntoucher.jigg.util.JiggDateUtil.parse;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -36,8 +36,8 @@ public class StoriesResponseHandler extends ResponseHandler {
 				story = new Story(
 					new Integer(attributes.getValue("id")), 
 					attributes.getValue("link"),
-					new Date(new Long(attributes.getValue("submit_date"))),
-					promoteDate == null ? null : new Date(new Long(promoteDate)),
+					parse(attributes.getValue("submit_date")),
+					promoteDate == null ? null : parse(promoteDate),
 					new Integer(attributes.getValue("diggs")),
 					new Integer(attributes.getValue("comments")),
 					Status.valueOf(attributes.getValue("status")),
@@ -51,7 +51,7 @@ public class StoriesResponseHandler extends ResponseHandler {
 				story.setUser(new User(
 						attributes.getValue("name"), 
 						attributes.getValue("icon"),
-						new Date(new Long(attributes.getValue("registered"))),
+						parse(attributes.getValue("registered")),
 						new Integer(attributes.getValue("profileviews"))));
 			}
 			
@@ -77,7 +77,7 @@ public class StoriesResponseHandler extends ResponseHandler {
 				stories.setCount(new Integer(attributes.getValue("count")));
 
 				if(attributes.getValue("min_date") != null){
-					stories.setMinDate(new Date(new Long(attributes.getValue("min_date"))));
+					stories.setMinDate(parse(attributes.getValue("min_date")));
 				}
 			}
 			
