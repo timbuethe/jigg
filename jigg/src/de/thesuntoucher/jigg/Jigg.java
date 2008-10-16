@@ -5,12 +5,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import javax.xml.parsers.SAXParserFactory;
-
 import de.thesuntoucher.jigg.args.*;
 import de.thesuntoucher.jigg.data.*;
 import de.thesuntoucher.jigg.data.Error;
 import de.thesuntoucher.jigg.handler.*;
+import de.thesuntoucher.jigg.net.DefaultHttpClient;
+import de.thesuntoucher.jigg.net.JiggHttpClient;
 
 /**
  * 
@@ -19,8 +19,9 @@ import de.thesuntoucher.jigg.handler.*;
  */
 public class Jigg {
 	
-	private String baseUrl = "http://services.digg.com/";
-	private String appKey;
+	private final String baseUrl = "http://services.digg.com/";
+	private final String appKey;
+	private JiggHttpClient httpClient = new DefaultHttpClient();
 	
 	/**
 	 * @param appKey see http://apidoc.digg.com/ApplicationKeys
@@ -705,54 +706,13 @@ public class Jigg {
 //	GET /medium/{medium short_name}
 //	    Get a specified medium. 
 	
-	
 	/**
 	 * @param url
 	 * @param handler
 	 */
 	private void fetch(URL url, ResponseHandler handler){
-		
-		try {
-
-			System.out.println("-- fetch Url: " + url);
-			SAXParserFactory factory = SAXParserFactory.newInstance();
-	        factory.newSAXParser().parse(url.openStream(), handler);
-	        
-		} catch (Exception e) {
-			throw new JiggException(e);
-		}
+		this.httpClient.fetch(url, handler);
 	}
-	
-//	/**
-//	 * @param url
-//	 * @param handler
-//	 */
-//	private void fetch(URL url, ResponseHandler handler){
-//		
-//		try {
-//
-//			System.out.println("-- fetch Url: " + url.toExternalForm());
-//			
-//	        
-//	        HttpClient client = new HttpClient();
-//	        GetMethod get = new GetMethod(url.toExternalForm());
-//	        int statusCode = client.executeMethod(get);
-//	        if (statusCode != HttpStatus.SC_OK) {
-//	          System.err.println("Method failed: " + get.getStatusLine());
-//	        }
-//
-//	        SAXParserFactory factory = SAXParserFactory.newInstance();
-//	        factory.newSAXParser().parse(get.getResponseBodyAsStream(), handler);
-//	        
-////	        System.out.println(get.getResponseBodyAsString());
-//	        
-//	        get.releaseConnection();
-//
-//	        
-//		} catch (Exception e) {
-//			throw new JiggException(e);
-//		}
-//	}
 	
 	/**
 	 * @param endpoint
@@ -807,6 +767,14 @@ public class Jigg {
 		}
 		
 		return result.toString();
+	}
+
+	public JiggHttpClient getHttpClient() {
+		return httpClient;
+	}
+
+	public void setHttpClient(JiggHttpClient httpClient) {
+		this.httpClient = httpClient;
 	}
 	
 //	TODO: i think i can't implement this, because of point 4 

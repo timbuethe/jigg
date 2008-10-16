@@ -3,6 +3,8 @@
  */
 package de.thesuntoucher.jigg.data;
 
+import de.thesuntoucher.jigg.util.JiggDateUtil;
+
 /**
  * http://apidoc.digg.com/ListEvents
  *
@@ -25,5 +27,10 @@ public class Digg extends Event {
 	 */
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+	
+	@Override
+	public String toString() {
+		return "Digg (by " + getUser() + " at " + JiggDateUtil.format(getDate()) + ")";
 	}
 }

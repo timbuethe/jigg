@@ -6,6 +6,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import de.thesuntoucher.jigg.data.*;
+import static de.thesuntoucher.jigg.util.JiggDateUtil.parse;
 
 /**
  * <a href="http://apidoc.digg.com/ListEvents">http://apidoc.digg.com/ListEvents</a><br>
@@ -33,13 +34,13 @@ public class EventsResponseHandler<E> extends ResponseHandler {
 		// <events timestamp="1194127871" min_date="1176760800" max_date="1176764400" total="805" offset="0" count="10">
 		if(name.equals("events")){
 			events.setTimestamp(new Long(attributes.getValue("timestamp")));
-			events.setMinDate(new Date(new Long(attributes.getValue("min_date"))));
+			events.setMinDate(parse(attributes.getValue("min_date")));
 			events.setTotal(new Integer(attributes.getValue("total")));
 			events.setOffset(new Integer(attributes.getValue("offset")));
 			events.setCount(new Integer(attributes.getValue("count")));
 
 			if(attributes.getValue("max_date") != null){
-				events.setMaxDate(new Date(new Long(attributes.getValue("max_date"))));
+				events.setMaxDate(parse(attributes.getValue("max_date")));
 			}
 		}
 		
@@ -47,7 +48,7 @@ public class EventsResponseHandler<E> extends ResponseHandler {
 		else if(name.equals("comment")){
 			
 			Comment comment = new Comment();
-			comment.setDate(new Date(new Long(attributes.getValue("date"))));
+			comment.setDate(parse(attributes.getValue("date")));
 			comment.setStory(new Story().setId(new Integer(attributes.getValue("story"))));
 			comment.setId(new Long(attributes.getValue("id")));
 			comment.setUp(new Integer(attributes.getValue("up")));
@@ -62,7 +63,7 @@ public class EventsResponseHandler<E> extends ResponseHandler {
 		else if(name.equals("digg")){
 			
 			Digg digg = new Digg();
-			digg.setDate(new Date(new Long(attributes.getValue("date"))));
+			digg.setDate(parse(attributes.getValue("date")));
 			digg.setStory(new Story().setId(new Integer(attributes.getValue("story"))));
 			digg.setId(new Long(attributes.getValue("id")));
 			digg.setUser(new User(attributes.getValue("user")));
