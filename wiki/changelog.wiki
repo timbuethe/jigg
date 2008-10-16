@@ -2,6 +2,10 @@
 
 = Versions =
 
+0.5 Oct 16, 2008
+  * fixed wrong handling of dates, using seconds instead of milliseconds since 1.1.1970 (again)
+  * added the JiggHttpClient-Interface to enable custom httpclients plugability
+
 0.4 Oct 02, 2008
   * fixed getPopularStories() to use getPopularStories(StoriesArguments) instead of getStories(StoriesArguments)
   * created Media as an enum of News, Videos, Images
