@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="project" default="jar">
 	
-	<property name="version" value="0.4"/>
+	<property name="version" value="0.5"/>
 
     <target name="jar" description="">
     	
@@ -9,9 +9,11 @@
     	<buildnumber/>
     	<echo message="creating jar, version: ${version}, build: ${build.number}"/>
     	
-    	<jar destfile="build/jigg-${version}.jar" >
-    		<fileset dir="classes" includes="**/*"
-    			excludes="**/test/"/>
+    	<jar destfile="build/jigg-${version}.jar" excludes="**/Test*">
+    		<fileset dir="classes">
+    			<include name="**/*"/>
+    			<exclude name="**/*Test*"/>
+    		</fileset>
     	</jar>
     </target>
 
