@@ -1,0 +1,1 @@
+Jigg is a simple and small Java layer around the [digg.com API](http://apidoc.digg.com/).  You can use it to access digg's endpoints in pure Java. Take a look at the [getting started](http://code.google.com/p/jigg/wiki/GettingStarted) page to see how it feels like.
